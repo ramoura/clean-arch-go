@@ -1,0 +1,12 @@
+scrape_configs:
+  - job_name: 'MyAppMetrics'
+    metrics_path: '/metrics'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['localhost:8090','localhost:8091']
+        labels:
+          application: 'My Spring Boot Application'
+      # node-exporter
+      - targets: ['localhost:9100']
+      # cadvisor
+      - targets: ['localhost:8080']
